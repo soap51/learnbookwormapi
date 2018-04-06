@@ -3,6 +3,7 @@ import User from '../models/User';
 const router = express.Router();
 router.post("/" , (req,res) =>{
     const {credentials} = req.body;
+    console.log(req);
     User.findOne({email : credentials.email}).then(user =>{
        
         if(user && user.isValidPassword(credentials.password)){
